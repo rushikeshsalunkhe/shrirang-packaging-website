@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Shrirang Packaging Brand Colors */
+    --background: 200 20% 98%; /* Off-white #F8FAFB */
+    --foreground: 217 19% 17%; /* Charcoal #1F2937 */
+
+    --card: 0 0% 100%; /* White */
+    --card-foreground: 217 19% 17%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 217 19% 17%;
+
+    /* Primary: Deep Navy Blue - Trust & Professionalism */
+    --primary: 214 63% 26%; /* #1B3A6D */
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 214 63% 22%;
+
+    /* Secondary: Teal - Innovation & Technology */
+    --secondary: 177 92% 35%; /* #0BA5A1 */
+    --secondary-foreground: 0 0% 100%;
+    --secondary-hover: 177 92% 30%;
+
+    /* Accent: Bright Green - Quality & Sustainability */
+    --accent: 160 84% 39%; /* #10B981 */
+    --accent-foreground: 0 0% 100%;
+    --accent-hover: 160 84% 35%;
+
+    --muted: 214 20% 95%;
+    --muted-foreground: 217 15% 45%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 20% 90%; /* #E5E7EB */
+    --input: 214 20% 90%;
+    --ring: 177 92% 35%;
+
+    --radius: 0.5rem;
+
+    /* Custom Design Tokens */
+    --gradient-hero: linear-gradient(135deg, hsl(214 63% 26% / 0.95), hsl(214 63% 20% / 0.85));
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(200 20% 99%));
+    --shadow-sm: 0 1px 2px 0 hsl(217 19% 17% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(217 19% 17% / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(217 19% 17% / 0.1);
+    --shadow-xl: 0 20px 25px -5px hsl(217 19% 17% / 0.1);
+    --shadow-glow-secondary: 0 0 20px hsl(177 92% 35% / 0.3);
+    --shadow-glow-accent: 0 0 20px hsl(160 84% 39% / 0.3);
+    
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    --background: 214 63% 10%;
+    --foreground: 0 0% 98%;
+    --card: 214 63% 12%;
+    --card-foreground: 0 0% 98%;
+    --popover: 214 63% 12%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 177 92% 35%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 214 63% 20%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 214 20% 18%;
+    --muted-foreground: 217 15% 65%;
+    --accent: 160 84% 39%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 214 20% 20%;
+    --input: 214 20% 20%;
+    --ring: 177 92% 35%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+}
+
+@layer utilities {
+  .hover-lift {
+    @apply transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg;
+  }
+
+  .hover-glow-secondary {
+    @apply transition-shadow duration-300 hover:shadow-[0_0_20px_hsl(var(--secondary)/0.3)];
+  }
+
+  .hover-glow-accent {
+    @apply transition-shadow duration-300 hover:shadow-[0_0_20px_hsl(var(--accent)/0.3)];
+  }
+
+  .text-gradient-primary {
+    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
+  }
+}
